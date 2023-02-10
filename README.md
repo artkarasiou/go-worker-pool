@@ -2,21 +2,21 @@
 #### Simple implementation of Worker Pool (Thread Pool) concurrency pattern in Golang
 
 #### Public WorkerPool API:
-````
+```go
 type WorkerPool interface {
     AddTasks(tasks []Executor)
     GetResults() chan *TaskResult
 }
-````
+```
 
 #### Public Task API:
-````
+```go
 type Executor interface {
     Execute(ctx context.Context) *TaskResult
 }
-````
+```
 #### Example:
-````
+```go
 package main
 
 
@@ -57,4 +57,4 @@ func sum(_ context.Context, in any) (any, error) {
     }
     return val[0] + val[1], nil
 }
-````
+```
